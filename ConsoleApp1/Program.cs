@@ -9,7 +9,28 @@ namespace ConsoleApp1
             try
             {
                 string file = File.ReadAllText("butorok.json");
-                Gyoker gy = JsonSerializer.Deserialize < Gyoker>(file);
+                Gyoker gy = JsonSerializer.Deserialize <Gyoker>(file);
+                //Mely bútorok vannak fából
+                foreach (var t in gy.targyak)
+                {
+                    if (t.anyag .ToLower().Contains("fa"))
+                    {
+                        Console.WriteLine(t);
+                    }
+                }
+                //Melyik butornak van a elgnagyobb terfogata?
+                Targyak max = gy.targyak[0];
+                foreach (var t in gy.targyak)
+                {
+                    if (t.Terfogat() > max.Terfogat())
+                    {
+                        max = t;
+                    }
+                }
+                Console.WriteLine("Legnagyobb:" + max);
+                //A keszleten levok osszara mennyi?
+
+
             }
             catch (JsonException ex)
             {

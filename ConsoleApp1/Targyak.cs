@@ -19,5 +19,16 @@ namespace ConsoleApp1
         public int ar { get; set; }
                 
         public bool keszleten { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nev} {anyag}"+ $" {meretek.szelesseg}x{meretek.magassag}x{meretek.melyseg} " + $"Ára: {ar} Ft " + $"{ (keszleten ? "Készleten van!" : "Nem elérhető!")}";
+           
+        }
+
+        public int Terfogat()
+        {
+            return meretek.szelesseg * meretek.magassag * meretek.melyseg;
+        }
     }
 }
