@@ -30,6 +30,14 @@ namespace ConsoleApp1
                 Console.WriteLine("Legnagyobb:" + max);
                 //A keszleten levok osszara mennyi?
 
+                int osszeg = 0;
+                foreach (var t in gy.targyak)
+                {
+                    if (t.keszleten)
+                    {
+                        osszeg += t.ar;
+                    }
+                }
 
             }
             catch (JsonException ex)
